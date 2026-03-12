@@ -1710,7 +1710,7 @@ img { max-width: 100%; display: block; }
   </a>
   <div class="nav-links">
     <a href="#experiencia">Experiência</a>
-    <a href="#calculadora">Calculadora</a>
+    <a href="#calculadora" id="nav-calc-link" style="display:none">Calculadora</a>
     <a href="#galeria">Galeria</a>
     <a href="https://wa.me/5548988461606" target="_blank" class="nav-wa">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.612.638l4.72-1.391A11.944 11.944 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22a9.94 9.94 0 01-5.567-1.696l-.397-.264-3.085.91.846-3.232-.287-.456A9.93 9.93 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></svg>
@@ -1729,7 +1729,7 @@ img { max-width: 100%; display: block; }
   <div class="footer-inner">
     <div>
       <div class="footer-logo">Ilha Maravilha</div>
-      <p class="footer-desc">Parque indoor no Rio Tavares, Florianópolis. Diária, passaporte ou festa fechada.</p>
+      <p class="footer-desc">Parque indoor em Florianópolis. Diária avulsa ou festa fechada.</p>
     </div>
     <div class="footer-col">
       <h4>Contato</h4>
@@ -1739,13 +1739,16 @@ img { max-width: 100%; display: block; }
     <div class="footer-col">
       <h4>Navegar</h4>
       <a href="#experiencia">Experiência</a>
-      <a href="#calculadora">Calculadora</a>
+      <a href="#calculadora" id="footer-calc-link" style="display:none">Calculadora</a>
       <a href="#galeria">Galeria</a>
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2026 Ilha Maravilha. Rio Tavares, Florianópolis.</span>
+    <span>© 2026 Ilha Maravilha. Florianópolis.</span>
     <span class="footer-tagline">Feito de pais, para pais.</span>
+  </div>
+  <div class="footer-bottom" style="border-top:none; padding-top:8px; justify-content:center;">
+    <span style="color:rgba(255,255,255,0.35); font-size:0.78rem;">Rua Francisco Magno Vieira, 374 — Rio Tavares, Florianópolis</span>
   </div>
 </footer>
 
@@ -1811,7 +1814,6 @@ const PRECO = {
   semana: { salao: 200, ingresso: 81, horaExtraSalao: 100, horaExtraPulante: 30 },
   fds:    { salao: 500, ingresso: 112.50, horaExtraSalao: 300, horaExtraPulante: 32 }
 };
-const BEBIDA = 12;
 const BUFFET_ADULTO = 38;
 const BUFFET_CRIANCA = 29;
 
@@ -1823,7 +1825,7 @@ function precoVolume(c) {
 }
 
 let dia = 'fds';
-let opts = { bebidas: true, buffet: false };
+let opts = { buffet: false };
 
 function setDay(d) {
   dia = d;
@@ -1861,13 +1863,6 @@ function calc() {
   const vIngresso = p.ingresso * c;
   rows.push({ label: `${c} ingressos × R$${p.ingresso.toLocaleString('pt-BR',{minimumFractionDigits:2})}`, value: vIngresso });
 
-  // bebidas
-  let vBebidas = 0;
-  if (opts.bebidas) {
-    vBebidas = BEBIDA * total_pessoas;
-    rows.push({ label: `Bebidas × ${total_pessoas} pessoas`, value: vBebidas });
-  }
-
   // buffet
   let vBuffet = 0;
   if (opts.buffet) {
@@ -1885,7 +1880,7 @@ function calc() {
     rows.push({ label: `${ex}h extra (salão + ${c} pulantes)`, value: vExtra });
   }
 
-  const t = vSalao + vIngresso + vBebidas + vBuffet + vExtra;
+  const t = vSalao + vIngresso + vBuffet + vExtra;
 
   const f = 'R$ ' + t.toLocaleString('pt-BR', {minimumFractionDigits: 0, maximumFractionDigits: 2});
   document.getElementById('price').textContent = f;
@@ -1905,7 +1900,6 @@ function calc() {
   const diaLabel = dia === 'fds' ? 'fim de semana' : 'seg-qui';
   let d = `${diaLabel} · ${c} criança${c!==1?'s':''} · ${a} adulto${a!==1?'s':''} · ${3+ex}h`;
   const extras = [];
-  if (opts.bebidas) extras.push('bebidas');
   if (opts.buffet) extras.push('buffet');
   d += extras.length ? ' · com ' + extras.join(' e ') : '';
   document.getElementById('detail').textContent = d;
@@ -1914,7 +1908,6 @@ function calc() {
   parts.push(`${c} pulante${c!==1?'s':''}`);
   parts.push(`${a} adulto${a!==1?'s':''}`);
   if (ex > 0) parts.push(`${ex} hora${ex!==1?'s':''} extra${ex!==1?'s':''}`);
-  if (opts.bebidas) parts.push('com bebidas');
   if (opts.buffet) parts.push('com buffet');
   const diaMsg = dia === 'fds' ? 'fim de semana/feriado' : 'seg a quinta';
   const msg = encodeURIComponent(`Olá! Simulei uma festa pelo site (${diaMsg}) com ${parts.join(', ')} e ficou ${f}. Pode me ajudar?`);
@@ -1922,6 +1915,19 @@ function calc() {
 }
 
 calc();
+
+// Show calculator section + nav links only after 22 Mar 2026
+(function() {
+  const showDate = new Date('2026-03-22T00:00:00');
+  if (new Date() >= showDate) {
+    const calcSection = document.getElementById('calculadora');
+    if (calcSection) calcSection.style.display = '';
+    const navLink = document.getElementById('nav-calc-link');
+    if (navLink) navLink.style.display = '';
+    const footerLink = document.getElementById('footer-calc-link');
+    if (footerLink) footerLink.style.display = '';
+  }
+})();
 </script>
 </body>
 </html>
