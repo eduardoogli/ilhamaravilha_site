@@ -3,7 +3,7 @@ description: "Parque indoor em Florianópolis. Diária avulsa ou festa fechada. 
 # Sem domínio: deixe url vazio. Com domínio: "https://seusite.com.br"
 url: "https://ilhamaravilhapark.com.br"
 # Nome do repo no GitHub. Com domínio custom: ""
-baseurl: "/ilhamaravilha_site"
+baseurl: ""
 logo: ""
 image: ""
 
