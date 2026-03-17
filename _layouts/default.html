@@ -9,10 +9,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-/* ==============================================
-   ILHA MARAVILHA — PLAYFUL MAXIMALISM
-   Inspired by colorful building blocks & the logo
-   ============================================== */
 
 :root {
   --yellow: #F5C831;
@@ -60,9 +56,7 @@ a { text-decoration: none; color: inherit; }
 button { cursor: pointer; font-family: var(--font-body); border: none; background: none; }
 img { max-width: 100%; display: block; }
 
-/* ==============================================
-   ANIMATED DECORATIVE SHAPES
-   ============================================== */
+
 @keyframes spin-slow { to { transform: rotate(360deg); } }
 @keyframes float-y { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
 @keyframes float-x { 0%,100% { transform: translateX(0); } 50% { transform: translateX(15px); } }
@@ -106,9 +100,7 @@ img { max-width: 100%; display: block; }
 .hero .hero-sub { animation: reveal-up 0.7s cubic-bezier(.22,.61,.36,1) 0.35s both; }
 .hero .hero-ctas { animation: reveal-up 0.7s cubic-bezier(.22,.61,.36,1) 0.5s both; }
 
-/* ==============================================
-   GLOBAL BACKGROUND SHAPES — two parallax layers
-   ============================================== */
+
 .bg-shapes {
   position: fixed;
   inset: 0;
@@ -126,8 +118,8 @@ img { max-width: 100%; display: block; }
   transition: transform 0s;
 }
 
-.bg-layer-far { filter: blur(1px); /* slightly soft — feels distant */ }
-.bg-layer-near { /* crisp — feels closer */ }
+.bg-layer-far { filter: blur(1px); }
+.bg-layer-near { }
 
 .bg-shape {
   position: absolute;
@@ -241,16 +233,12 @@ img { max-width: 100%; display: block; }
   animation: scale-pulse 5s ease-in-out infinite 2s;
 }
 
-/* All page content sits above the bg shapes */
 .nav, .hero, .ticker, .section-exp, .section-calc,
 .section-gallery, .section-cta, .footer, .fab-whatsapp {
   position: relative;
   z-index: 1;
 }
 
-/* ==============================================
-   NAVBAR
-   ============================================== */
 .nav {
   position: fixed;
   top: 0; left: 0; right: 0;
@@ -272,7 +260,6 @@ img { max-width: 100%; display: block; }
   border-bottom: 3px solid var(--yellow);
 }
 
-/* nav colors — white on hero, dark when scrolled */
 .nav .nav-logo span { color: white; transition: color 0.4s; }
 .nav.scrolled .nav-logo span { color: var(--purple-deep); }
 
@@ -368,9 +355,6 @@ img { max-width: 100%; display: block; }
 .nav-mobile-btn.active span:nth-child(2) { opacity: 0; transform: scaleX(0); }
 .nav-mobile-btn.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
-/* ==============================================
-   HERO — DARK, IMMERSIVE, VIDEO-READY
-   ============================================== */
 .hero {
   min-height: 100vh;
   padding: 72px 0 0;
@@ -381,7 +365,6 @@ img { max-width: 100%; display: block; }
   overflow: hidden;
 }
 
-/* video / image background */
 .hero-media {
   position: absolute;
   inset: 0;
@@ -408,7 +391,6 @@ img { max-width: 100%; display: block; }
   );
 }
 
-/* placeholder while no real media */
 .hero-media-placeholder {
   width: 100%; height: 100%;
   background:
@@ -494,7 +476,6 @@ img { max-width: 100%; display: block; }
   flex-wrap: wrap;
 }
 
-/* override instagram btn for dark hero */
 .hero .btn-ig {
   background: rgba(255,255,255,0.08);
   color: white;
@@ -544,9 +525,7 @@ img { max-width: 100%; display: block; }
   box-shadow: 0 10px 36px rgba(74,45,122,0.25);
 }
 
-/* ==============================================
-   MARQUEE TICKER
-   ============================================== */
+
 .ticker {
   background: var(--purple-deep);
   padding: 18px 0;
@@ -588,9 +567,7 @@ img { max-width: 100%; display: block; }
 .ticker-dot.b { background: var(--blue); }
 .ticker-dot.g { background: var(--green); }
 
-/* ==============================================
-   SECTION — EXPERIENCIA
-   ============================================== */
+
 .section-exp {
   padding: 120px 48px;
   max-width: 1400px;
@@ -645,7 +622,6 @@ img { max-width: 100%; display: block; }
   line-height: 1.7;
 }
 
-/* feature blocks — stacked like building blocks */
 .exp-grid {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -700,7 +676,6 @@ img { max-width: 100%; display: block; }
   align-items: center;
 }
 
-/* card accent shape */
 .exp-card::before {
   content: '';
   position: absolute;
@@ -817,9 +792,7 @@ img { max-width: 100%; display: block; }
   z-index: 1;
 }
 
-/* ==============================================
-   CALCULATOR — DARK, PLAYFUL, INTERACTIVE
-   ============================================== */
+
 .section-calc {
   background: var(--dark);
   padding: 120px 48px;
@@ -867,7 +840,6 @@ img { max-width: 100%; display: block; }
   position: relative;
 }
 
-/* colorful top border accent */
 .calc-box::before {
   content: '';
   position: absolute;
@@ -1040,7 +1012,6 @@ img { max-width: 100%; display: block; }
   font-style: italic;
 }
 
-/* day picker — seg-qui vs fds */
 .calc-day-picker {
   display: flex;
   gap: 0;
@@ -1111,7 +1082,6 @@ img { max-width: 100%; display: block; }
   line-height: 1.2;
 }
 
-/* breakdown tooltip */
 .calc-breakdown-toggle {
   display: inline-flex;
   align-items: center;
@@ -1189,9 +1159,7 @@ img { max-width: 100%; display: block; }
   font-size: 0.9rem;
 }
 
-/* ==============================================
-   GALLERY — BENTO GRID
-   ============================================== */
+
 .section-gallery {
   padding: 120px 48px;
   max-width: 1400px;
@@ -1229,17 +1197,14 @@ img { max-width: 100%; display: block; }
   box-shadow: 0 16px 40px rgba(26,16,51,0.12);
 }
 
-/* bento layout — 4 cols, 4 rows */
-/* row 1-2: hero grande + 2 pequenos + 1 wide */
+
 .gallery-cell:nth-child(1)  { grid-column: 1 / 3; grid-row: 1 / 3; }
 .gallery-cell:nth-child(2)  { grid-column: 3 / 4; grid-row: 1 / 2; }
 .gallery-cell:nth-child(3)  { grid-column: 4 / 5; grid-row: 1 / 2; }
 .gallery-cell:nth-child(4)  { grid-column: 3 / 5; grid-row: 2 / 3; }
-/* row 3: 1 small + 1 wide + 1 small */
 .gallery-cell:nth-child(5)  { grid-column: 1 / 2; grid-row: 3 / 4; }
 .gallery-cell:nth-child(6)  { grid-column: 2 / 4; grid-row: 3 / 4; }
 .gallery-cell:nth-child(7)  { grid-column: 4 / 5; grid-row: 3 / 4; }
-/* row 4-5: wide + grande + 2 pequenos */
 .gallery-cell:nth-child(8)  { grid-column: 1 / 3; grid-row: 4 / 5; }
 .gallery-cell:nth-child(9)  { grid-column: 3 / 5; grid-row: 4 / 6; }
 .gallery-cell:nth-child(10) { grid-column: 1 / 2; grid-row: 5 / 6; }
@@ -1294,9 +1259,7 @@ img { max-width: 100%; display: block; }
 .gallery-link svg { width: 20px; height: 20px; stroke: currentColor; fill: none; transition: transform 0.3s; }
 .gallery-link:hover svg { transform: translateX(4px); }
 
-/* ==============================================
-   FINAL CTA — COLOR BLOCKED
-   ============================================== */
+
 .section-cta {
   background: var(--yellow);
   padding: 120px 48px;
@@ -1381,9 +1344,7 @@ img { max-width: 100%; display: block; }
 
 .btn-dark:hover { box-shadow: 0 14px 44px rgba(26,16,51,0.4); }
 
-/* ==============================================
-   FOOTER
-   ============================================== */
+
 .footer {
   background: var(--dark);
   color: rgba(255,255,255,0.45);
@@ -1444,12 +1405,9 @@ img { max-width: 100%; display: block; }
   color: rgba(255,255,255,0.25);
 }
 
-/* ==============================================
-   RESPONSIVE — TABLET (≤960px)
-   ============================================== */
+
 @media (max-width: 960px) {
 
-  /* nav */
   .nav { padding: 0 16px; height: 60px; }
   .nav-logo-img { width: 84px; height: 84px; }
   .nav-logo span { font-size: 0.95rem; }
@@ -1482,7 +1440,6 @@ img { max-width: 100%; display: block; }
     font-size: 0.9rem;
   }
 
-  /* hero — compact, no 100vh */
   .hero { min-height: 0 !important; height: auto !important; padding-top: 60px; }
   .hero-content {
     padding: 32px 16px 32px;
@@ -1494,7 +1451,6 @@ img { max-width: 100%; display: block; }
   .hero-sub { font-size: 0.95rem; line-height: 1.6; margin-bottom: 24px; }
   .hero-title .em-yellow::after { height: 8px; bottom: 2px; }
 
-  /* buttons — much smaller on mobile */
   .btn {
     padding: 12px 22px;
     font-size: 0.82rem;
@@ -1503,20 +1459,16 @@ img { max-width: 100%; display: block; }
 
   .hero-ctas { gap: 10px; }
 
-  /* ticker */
   .ticker { transform: rotate(0) scale(1); padding: 12px 0; margin: 0; }
   .ticker-item { font-size: 0.7rem; padding: 0 16px; }
 
-  /* sections — tighter padding */
   .section-exp, .section-gallery { padding: 56px 16px; }
   .section-calc, .section-cta { padding: 56px 16px; }
 
-  /* section headings */
   .section-heading { font-size: clamp(1.6rem, 6vw, 2.2rem); letter-spacing: -0.8px; }
   .section-desc { font-size: 0.95rem; }
   .section-tag { font-size: 0.6rem; padding: 7px 14px; }
 
-  /* features — 2 cols on mobile, compact */
   .exp-header { margin-bottom: 32px; }
   .exp-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
   .exp-card-1, .exp-card-2, .exp-card-3, .exp-card-4 { grid-column: span 1; }
@@ -1532,7 +1484,6 @@ img { max-width: 100%; display: block; }
   .exp-card-icon svg { width: 18px; height: 18px; }
   .exp-card-5 > div:last-child { display: none; }
 
-  /* calculator — force full width within padding */
   .calc-header { margin-bottom: 32px; }
   .calc-box {
     width: 100%;
@@ -1568,7 +1519,6 @@ img { max-width: 100%; display: block; }
   .calc-result .btn { font-size: 0.78rem; padding: 12px 20px; }
   .calc-disclaimer { font-size: 0.68rem; }
 
-  /* gallery — bento mobile */
   .gallery-header { margin-bottom: 28px; }
   .gallery-grid {
     grid-template-columns: 1fr 1fr;
@@ -1592,13 +1542,12 @@ img { max-width: 100%; display: block; }
   .gallery-cell:nth-child(1) .gallery-ph { font-size: 0.85rem; }
   .gallery-link { font-size: 0.85rem; }
 
-  /* final cta */
   .cta-desc { font-size: 0.95rem; }
   .cta-tags { gap: 8px; margin-bottom: 28px; }
   .cta-tag { font-size: 0.65rem; padding: 6px 14px; }
   .cta-buttons { gap: 10px; }
 
-  /* footer */
+
   .footer { padding: 40px 16px 20px; }
   .footer-inner { grid-template-columns: 1fr 1fr; gap: 24px; }
   .footer-inner > div:first-child { grid-column: span 2; }
@@ -1607,9 +1556,7 @@ img { max-width: 100%; display: block; }
   .footer-bottom { flex-direction: column; gap: 6px; text-align: center; font-size: 0.75rem; }
 }
 
-/* ==============================================
-   RESPONSIVE — SMALL PHONE (≤480px)
-   ============================================== */
+
 @media (max-width: 480px) {
   .hero-content { padding: 24px 14px 20px; flex: none; }
   .hero-title { font-size: clamp(1.6rem, 8vw, 2.2rem); }
@@ -1620,7 +1567,6 @@ img { max-width: 100%; display: block; }
   .section-exp, .section-gallery { padding: 44px 14px; }
   .section-calc, .section-cta { padding: 44px 14px; }
 
-  /* features stay 2-col but tighter */
   .exp-grid { gap: 8px; }
   .exp-card { padding: 16px 12px; }
   .exp-card h3 { font-size: 0.82rem; }
@@ -1628,13 +1574,11 @@ img { max-width: 100%; display: block; }
   .exp-card-icon { width: 32px; height: 32px; border-radius: 8px; margin-bottom: 8px; }
   .exp-card-icon svg { width: 16px; height: 16px; }
 
-  /* calc tighter */
   .calc-box { padding: 20px 12px; }
   .calc-box::before { left: 12px; right: 12px; }
   .calc-stepper button { width: 34px; height: 38px; font-size: 0.95rem; }
   .calc-stepper input { font-size: 1rem; }
 
-  /* gallery bento tighter */
   .gallery-grid {
     grid-template-rows: 150px 110px 110px 150px 110px 110px;
     gap: 6px;
@@ -1648,9 +1592,6 @@ img { max-width: 100%; display: block; }
   .footer-inner > div:first-child { grid-column: span 1; }
 }
 
-/* ==============================================
-   FLOATING WHATSAPP — MOBILE
-   ============================================== */
 .fab-whatsapp {
   display: none;
   position: fixed;
@@ -1681,9 +1622,8 @@ img { max-width: 100%; display: block; }
 </head>
 <body>
 
-<!-- ===== GLOBAL BACKGROUND SHAPES (fixed behind everything) ===== -->
+
 <div class="bg-shapes" aria-hidden="true">
-  <!-- FAR layer — big, soft, moves slowly -->
   <div class="bg-layer bg-layer-far" id="layer-far">
     <div class="bg-shape bg-circle-1"></div>
     <div class="bg-shape bg-circle-2"></div>
@@ -1691,7 +1631,6 @@ img { max-width: 100%; display: block; }
     <div class="bg-shape bg-blob-2"></div>
     <div class="bg-shape bg-ring"></div>
   </div>
-  <!-- NEAR layer — small, crisp, moves faster -->
   <div class="bg-layer bg-layer-near" id="layer-near">
     <div class="bg-shape bg-circle-3"></div>
     <div class="bg-shape bg-square-1"></div>
@@ -1703,7 +1642,6 @@ img { max-width: 100%; display: block; }
   </div>
 </div>
 
-<!-- ===== NAVBAR ===== -->
 <nav class="nav" id="nav">
   <a href="#" class="nav-logo">
     <img src="{{ '/images/logo.svg' | relative_url }}" alt="Ilha Maravilha" class="nav-logo-img">
@@ -1724,7 +1662,6 @@ img { max-width: 100%; display: block; }
 
 {{ content }}
 
-<!-- ===== FOOTER ===== -->
 <footer class="footer">
   <div class="footer-inner">
     <div>
@@ -1752,17 +1689,13 @@ img { max-width: 100%; display: block; }
   </div>
 </footer>
 
-<!-- ===== FAB WHATSAPP (MOBILE) ===== -->
 <a href="https://wa.me/5548988461606?text=Ol%C3%A1!%20Quero%20saber%20sobre%20festas%20na%20Ilha%20Maravilha" target="_blank" class="fab-whatsapp" aria-label="WhatsApp">
   <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.612.638l4.72-1.391A11.944 11.944 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22a9.94 9.94 0 01-5.567-1.696l-.397-.264-3.085.91.846-3.232-.287-.456A9.93 9.93 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></svg>
 </a>
 
-<!-- ===== JS ===== -->
 <script>
-// Navbar scroll
 const nav = document.getElementById('nav');
 
-// Parallax layers
 const layerFar = document.getElementById('layer-far');
 const layerNear = document.getElementById('layer-near');
 let ticking = false;
@@ -1773,7 +1706,6 @@ function onScroll() {
 
   if (!ticking) {
     requestAnimationFrame(() => {
-      // far layer moves slow (0.03x scroll), near moves faster (0.08x)
       layerFar.style.transform = `translateY(${y * -0.03}px)`;
       layerNear.style.transform = `translateY(${y * -0.08}px)`;
       ticking = false;
@@ -1784,7 +1716,6 @@ function onScroll() {
 
 window.addEventListener('scroll', onScroll, { passive: true });
 
-// Mobile menu
 const mobileBtn = document.querySelector('.nav-mobile-btn');
 const navLinks = document.querySelector('.nav-links');
 
@@ -1793,7 +1724,6 @@ mobileBtn.addEventListener('click', () => {
   mobileBtn.classList.toggle('active');
 });
 
-// Close menu when clicking a link
 navLinks.querySelectorAll('a').forEach(a => {
   a.addEventListener('click', () => {
     navLinks.classList.remove('open');
@@ -1801,7 +1731,6 @@ navLinks.querySelectorAll('a').forEach(a => {
   });
 });
 
-// Scroll reveal
 const io = new IntersectionObserver((entries) => {
   entries.forEach(e => {
     if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
@@ -1809,7 +1738,6 @@ const io = new IntersectionObserver((entries) => {
 }, { threshold: 0.12 });
 document.querySelectorAll('.anim').forEach(el => io.observe(el));
 
-// Calculator — real pricing
 const PRECO = {
   semana: { salao: 200, ingresso: 81, horaExtraSalao: 100, horaExtraPulante: 30 },
   fds:    { salao: 500, ingresso: 112.50, horaExtraSalao: 300, horaExtraPulante: 32 }
@@ -1818,7 +1746,6 @@ const BEBIDA = 12;
 const BUFFET_ADULTO = 38;
 const BUFFET_CRIANCA = 29;
 
-// volume discount on per-child rate (modelo amarela)
 function precoVolume(c) {
   if (c <= 20) return 190;
   if (c <= 30) return 160;
@@ -1856,19 +1783,15 @@ function calc() {
   const total_pessoas = c + a;
   const rows = [];
 
-  // salão
   const vSalao = p.salao;
   rows.push({ label: `Salão (3h, decoração inclusa)`, value: vSalao });
 
-  // ingressos pulantes
   const vIngresso = p.ingresso * c;
   rows.push({ label: `${c} ingressos × R$${p.ingresso.toLocaleString('pt-BR',{minimumFractionDigits:2})}`, value: vIngresso });
 
-  // bebidas (todas as pessoas)
   const vBebidas = BEBIDA * total_pessoas;
   rows.push({ label: `Bebidas × ${total_pessoas} pessoas (R$${BEBIDA}/pessoa)`, value: vBebidas });
 
-  // buffet
   let vBuffet = 0;
   if (opts.buffet) {
     const bk = BUFFET_CRIANCA * c;
@@ -1878,7 +1801,6 @@ function calc() {
     if (a > 0) rows.push({ label: `Buffet adultos: ${a} × R$${BUFFET_ADULTO}`, value: ba });
   }
 
-  // hora extra
   let vExtra = 0;
   if (ex > 0) {
     vExtra = (p.horaExtraSalao * ex) + (p.horaExtraPulante * c * ex);
@@ -1894,14 +1816,12 @@ function calc() {
   priceEl.style.transform = 'scale(1.06)';
   setTimeout(() => priceEl.style.transform = 'scale(1)', 200);
 
-  // build breakdown
   const bEl = document.getElementById('breakdown-items');
   bEl.innerHTML = rows.map(r =>
     `<div class="calc-breakdown-row"><span>${r.label}</span><span>R$ ${r.value.toLocaleString('pt-BR', {minimumFractionDigits: 0, maximumFractionDigits: 2})}</span></div>`
   ).join('') +
     `<div class="calc-breakdown-row total-row"><span>Total</span><span>${f}</span></div>`;
 
-  // detail line
   const diaLabel = dia === 'fds' ? 'fim de semana' : 'seg-qui';
   let d = `${diaLabel} · ${c} criança${c!==1?'s':''} · ${a} adulto${a!==1?'s':''} · ${3+ex}h`;
   const extras = [];
